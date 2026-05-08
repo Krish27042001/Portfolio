@@ -1,0 +1,149 @@
+/* ===========================
+   Analytics Section
+   =========================== */
+
+.analytics-section {
+  width: 100%;
+  padding: 96px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .analytics-section {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.analytics-container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Header
+   =========================== */
+
+.analytics-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.analytics-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .analytics-title {
+    font-size: 48px;
+  }
+}
+
+.analytics-title-accent {
+  color: var(--primary);
+}
+
+.analytics-subtitle {
+  color: var(--muted-foreground);
+  max-width: 672px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Tools Grid
+   =========================== */
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .analytics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ===========================
+   Tool Card
+   =========================== */
+
+.analytics-card {
+  /* glass-card styles */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.analytics-card:hover {
+  transform: translateY(-8px);
+}
+
+.analytics-card:hover .analytics-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.analytics-card:hover .analytics-tool-name {
+  color: var(--foreground);
+}
+
+/* ===========================
+   Icon Wrapper
+   =========================== */
+
+.analytics-icon-wrapper {
+  padding: 16px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.analytics-icon {
+  height: 32px;
+  width: 32px;
+}
+
+/* ===========================
+   Tool Name
+   =========================== */
+
+.analytics-tool-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  transition: color 0.3s ease;
+}
+
+/* ===========================
+   Icon Colors
+   =========================== */
+
+.icon-google-analytics { color: #E37400; }
+.icon-google            { color: #4285F4; }
+.icon-meta              { color: #0668E1; }
+.icon-linkedin          { color: #0A66C2; }
+.icon-zoho            { color: #00BFFF; }
+.icon-hubspot           { color: #FF7A59; }

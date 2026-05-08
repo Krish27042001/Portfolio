@@ -1,0 +1,396 @@
+/* ===========================
+   Hero Section
+   =========================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 24px 80px; /* 96px top clears the fixed 64px header + breathing room */
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* ===========================
+   Background Orbs
+   =========================== */
+
+.hero-orb-primary {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 400px;
+  height: 400px;
+  background-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  border-radius: 9999px;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hero-orb-purple {
+  position: absolute;
+  bottom: 25%;
+  right: 25%;
+  width: 500px;
+  height: 500px;
+  background-color: rgba(168, 85, 247, 0.2);
+  border-radius: 9999px;
+  filter: blur(120px);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  animation-delay: 2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 0.25; }
+}
+
+/* ===========================
+   Inner Grid
+   =========================== */
+
+.hero-container {
+  max-width: 1152px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    grid-template-columns: repeat(2, 1fr);
+    
+  }
+}
+
+/* ===========================
+   Left Column
+   =========================== */
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
+}
+
+/* ===========================
+   Available Badge
+   =========================== */
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.hero-badge-dot {
+  position: relative;
+  display: flex;
+  height: 8px;
+  width: 8px;
+}
+
+.hero-badge-dot-ping {
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: var(--primary);
+  opacity: 0.75;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.hero-badge-dot-core {
+  position: relative;
+  display: inline-flex;
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background-color: var(--primary);
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ===========================
+   Headline
+   =========================== */
+
+.hero-title {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 40px;
+  }
+}
+
+/* .text-gradient should already be defined globally; kept as-is in JSX */
+
+.hero-description {
+  font-size: 18px;
+  color: var(--muted-foreground);
+  max-width: 36rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+@media (min-width: 1024px) {
+  .hero-description {
+    font-size: 20px;
+  }
+}
+
+/* ===========================
+   CTA Buttons
+   =========================== */
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 20px rgba(100, 100, 255, 0.4);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn-primary:hover {
+  background-color: color-mix(in srgb, var(--primary) 90%, transparent);
+  box-shadow: 0 0 30px rgba(100, 100, 255, 0.6);
+}
+
+.hero-btn-primary svg {
+  margin-left: 8px;
+  height: 20px;
+  width: 20px;
+}
+
+.hero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--foreground);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background-color 0.2s ease;
+}
+
+.hero-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   Stats Row
+   =========================== */
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat-value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.hero-stat-label {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.hero-stat-hidden {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hero-stat-hidden {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ===========================
+   Right Column — Image Card
+   =========================== */
+
+.hero-right {
+  display: none;
+  perspective: 1000px;
+}
+
+@media (min-width: 1024px) {
+  .hero-right {
+    display: block;
+  }
+}
+
+.hero-image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 8px;
+  transform: rotateY(-5deg) rotateX(5deg);
+  transition: transform 0.7s ease;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+  /* glass-card styles */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-image-card:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, color-mix(in srgb, var(--primary) 20%, transparent), transparent);
+  mix-blend-mode: overlay;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-dashboard-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.9;
+}
+
+/* ===========================
+   Floating Metric Badge
+   =========================== */
+
+.hero-metric-badge {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  animation: bounce 3s infinite;
+
+  /* glass-card styles */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.hero-metric-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-metric-icon svg {
+  height: 20px;
+  width: 20px;
+  color: #10b981; /* emerald-500 */
+}
+
+.hero-metric-label {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.hero-metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #34d399; /* emerald-400 */
+}
