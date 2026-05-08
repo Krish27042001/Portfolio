@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
 
         <div className="footer-brand">
-          <p className="footer-brand-name">Vamsi Krishna</p>
+          <p className="footer-brand-name">Vamsi Krishna M</p>
           <p className="footer-brand-tagline">Digital Marketing Expert & Performance Marketing Specialist</p>
         </div>
 
